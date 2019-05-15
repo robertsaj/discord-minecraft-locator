@@ -65,7 +65,7 @@ export class DiscordManager {
         this.locationManager.addLocation({ name: name, x: parseInt(x), y: parseInt(y), z: parseInt(z) });
         this.fileSystem.fileSave();
         this.channel().send('Location ' + name + ' saved');
-        setTimeout(this.clearMessages, 3000);
+        setTimeout(() => this.clearMessages, 3000);
       }
     }
     if (!valid) {
