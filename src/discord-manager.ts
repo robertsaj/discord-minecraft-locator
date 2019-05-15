@@ -11,9 +11,9 @@ export class DiscordManager {
 
   private readonly discord: any;
 
-  constructor(private fileSystem: FileSystem, private locationManager: LocationManager) {
+  constructor(private commandParser: CommandParser, private fileSystem: FileSystem, private locationManager: LocationManager) {
     this.discord = new Discord.Client();
-    this.discord.on('message', (message: string) => DiscordManager.parseMessage(message));
+    this.discord.on('message', (message: string) => this.parseMessage(message));
     this.discord.on('ready', () => this.ready());
     this.discord.login(Config.TOKEN).then(/* Do nothing - don't care */);
   }
@@ -32,12 +32,12 @@ export class DiscordManager {
     this.channel().send('```Sorry sucker, not yet```');
   }
 
-  private static parseMessage(message: any): void {
+  private parseMessage(message: any): void {
     if (message.author.username !== Config.BOT_NAME) {
         const messageContent = message.content;
         const isCommand = messageContent.charAt(0) === Config.COMMAND_PREFIX;
         if (isCommand) {
-          CommandParser.parseCommand(messageContent, this).bind(this);
+          this.commandParser.parseCommand(messageContent);
         }
     }
   }

@@ -1,9 +1,12 @@
+import { TOKEN } from './discord-token';
+
 export class Config {
 
   // TODO: get TOKEN from env vars
   public static readonly BOT_NAME = 'minecraft-locations';
   public static readonly CHANNEL_NAME = 'locations';
   public static readonly COMMAND_PREFIX = '!';
+  public static readonly TOKEN = TOKEN;
   public static readonly COMMANDS = [
     {
       color: 65280,
