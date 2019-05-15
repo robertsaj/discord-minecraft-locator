@@ -1,0 +1,19 @@
+{
+  "name": "discord-minecraft-locator",
+  "version": "1.0.0",
+  "description": "A discord bot to manage locations for minecraft",
+  "main": "src/minecraft-location-bot.js",
+  "dependencies": {
+    "discord.js": "^11.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^12.0.0",
+    "typescript": "^3.4.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
